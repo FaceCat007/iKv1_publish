@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+  </head>
+  <body>
+    <div type="splitlayout" layoutstyle="toptobottom" size="200,200" splitterposition="200,1" name="SplitLayoutDiv" text="SplitLayoutDiv" location="77,332" dock="Fill">
+      <div name="Div" size="200,100">
+        <label name="Label2" text="选择路径:" location="14,25" size="100,20" />
+        <input type="text" name="txtPath" location="84,19" size="469,25" lineheight="25" cornerradius="4" bordercolor="rgb(0,0,0)" backcolor="rgba(44,59,66,200)" textcolor="rgb(255,255,255)" />
+        <input type="custom" cid="ribbonbutton2" name="btnDir" text="打开" location="563,11" size="90,40" />
+        <label name="Label" text="数据库名:" location="14,67" size="100,20" />
+        <input type="text" name="txtDBName" location="84,61" size="248,25" text="" lineheight="25" temptext="加载老库时可不填" cornerradius="4" bordercolor="rgb(0,0,0)" backcolor="rgba(44,59,66,200)" textcolor="rgb(255,255,255)" temptextcolor="rgba(200,200,200,255)" />
+        <label name="Label3" text="线程数:" location="14,106" size="4,15" />
+        <input type="custom" cid="myspin" name="spThread" location="84,102" size="120,25" lineheight="25" text="10" />
+        <input type="custom" cid="ribbonbutton2" name="btnNewDB" text="加载或创建库" location="10,141" size="120,40" />
+        <input type="custom" cid="ribbonbutton2" name="btnNewRow" text="新增行" location="150,141" size="90,40" />
+        <input type="custom" cid="ribbonbutton2" name="btnDeleteRow" text="删除行" location="260,141" size="90,40" />
+      </div>
+      <div name="Div2" size="200,100">
+        <table name="gridDB" text="Grid" location="173,91" size="200,200" dock="Fill" gridlinecolor="none" headerheight="25" bordercolor="none">
+          <tr>
+            <th name="colKey" width="300" allowresize="true">键</th>
+            <th name="colValue" width="600" allowresize="true">值</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
