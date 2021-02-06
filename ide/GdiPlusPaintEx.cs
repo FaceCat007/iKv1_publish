@@ -429,7 +429,7 @@ namespace FaceCat
             if (m_emptyStringFormat == null)
             {
                 m_emptyStringFormat = StringFormat.GenericTypographic;
-                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+                //m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
             }
             if (m_scaleFactorX != 1 || m_scaleFactorY != 1)
             {
@@ -1171,7 +1171,7 @@ namespace FaceCat
             if (m_emptyStringFormat == null)
             {
                 m_emptyStringFormat = StringFormat.GenericTypographic;
-                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+                //m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
             }
             if (m_scaleFactorX != 1 || m_scaleFactorY != 1)
             {
@@ -1220,7 +1220,7 @@ namespace FaceCat
             if (m_emptyStringFormat == null)
             {
                 m_emptyStringFormat = StringFormat.GenericTypographic;
-                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+                //m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
             }
             if (m_scaleFactorX != 1 || m_scaleFactorY != 1)
             {
@@ -1269,7 +1269,7 @@ namespace FaceCat
             if (m_emptyStringFormat == null)
             {
                 m_emptyStringFormat = StringFormat.GenericTypographic;
-                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+                //m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
             }
             int rw = rect.right - rect.left - 1;
             if (rw < 1) rw = 1;
@@ -2234,14 +2234,22 @@ namespace FaceCat
             if (m_emptyStringFormat == null)
             {
                 m_emptyStringFormat = StringFormat.GenericTypographic;
-                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+                ////m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
             }
             int gWidth = Int32.MaxValue;
             if (width != -1)
             {
                 gWidth = width;
             }
+            if (text == " ")
+            {
+                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+            }
             Size gdiPlusSize = m_g.MeasureString(text, getFont(font), gWidth, m_emptyStringFormat).ToSize();
+            if (text == " ")
+            {
+                m_emptyStringFormat.FormatFlags = StringFormatFlags.FitBlackBox | StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            }
             return new FCSize(gdiPlusSize.Width, gdiPlusSize.Height);
         }
 
@@ -2256,17 +2264,21 @@ namespace FaceCat
             if (m_emptyStringFormat == null)
             {
                 m_emptyStringFormat = StringFormat.GenericTypographic;
-                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+                ////m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
             }
             int gWidth = Int32.MaxValue;
             if (width != -1)
             {
                 gWidth = width;
             }
-            SizeF gdiPlusSize = m_g.MeasureString(text, getFont(font), gWidth, m_emptyStringFormat);
-            if (text.Length == 1)
+            if (text == " ")
             {
-
+                m_emptyStringFormat.FormatFlags = StringFormatFlags.MeasureTrailingSpaces;
+            }
+            SizeF gdiPlusSize = m_g.MeasureString(text, getFont(font), gWidth, m_emptyStringFormat);
+            if (text == " ")
+            {
+                m_emptyStringFormat.FormatFlags = StringFormatFlags.FitBlackBox | StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             }
             return new FCSizeF(gdiPlusSize.Width, gdiPlusSize.Height);
         }
